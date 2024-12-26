@@ -1,0 +1,75 @@
+.imgh{
+  width:60px;
+}
+.contact1{
+color:#ffc229;
+text-decoration: underline;
+margin-bottom: 30px;
+}
+.cont-bg1 {
+  position: relative;
+  background-image: url('../../assets/background-02-1920x870.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 5% 0;
+  color: white;
+  background-attachment: fixed;
+  /* background-image: linear-gradient(to right, rgb(231, 231, 246), rgba(0, 0, 0, 0.7)); Gradient from blue to black */
+}
+.frrm{
+    background-image: linear-gradient(to right, rgb(52 113 138 / 63%), rgb(52 113 138 / 92%));
+    padding:50px;
+}
+.container-busi{
+  width: 87%;
+  margin: auto;
+  text-align: center;
+}
+h3.text-primary {
+  color: #34718a /* Dark blue color for headings */
+}
+
+.btn-outline-primary {
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 25px;
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-primary i {
+  margin-right: 8px;
+}
+
+.btn-outline-primary:hover {
+  background-color: #34718a;
+  color: #fff;
+}
+
+.lead {
+  font-size: 18px;
+  color: #444;
+}
+
+/* Black overlay */
+.cont-bg1::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* 0.5 for a 50% opacity black overlay */
+  z-index: 1;
+}
+
+.cont-bg1 > * {
+  position: relative;
+  z-index: 2; /* Make sure your content stays above the overlay */
+}
+@media(max-width:600px){
+  .frrm{
+    padding:20px;
+}
+}

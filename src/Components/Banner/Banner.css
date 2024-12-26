@@ -1,0 +1,62 @@
+/* Components/Banner.css */
+
+.banner-section {
+    height: 400px; /* Fixed height for the banner */
+    background-size: cover; /* Ensure the background image covers the section */
+    background-position: center center; /* Center the background image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    position: relative; /* Allow absolute positioning of the overlay */
+    color: white; /* Text color */
+    display: flex;
+    justify-content: flex-start; /* Align the content to the left */
+    align-items: center; /* Vertically center the content */
+    padding: 20px;
+    background-attachment: fixed;
+  }
+  
+  /* Add an overlay to the banner */
+  .overlay {
+    position: absolute; /* Position the overlay relative to the section */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Black background with 50% opacity */
+    z-index: 1; /* Place the overlay above the background image but below the content */
+  }
+  
+  /* Banner content (the text) */
+  .banner-content {
+    position: relative;
+    z-index: 2; /* Ensure content appears above the overlay */
+    max-width: 600px; /* Max width for the text block */
+    padding-left: 20px; /* Space between text and the left edge */
+  top:51px;
+  }
+  
+  /* Title styling */
+  .banner-title {
+    font-size: 2.5rem; /* Title font size */
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Optional: Add text shadow for readability */
+    margin: 0;
+  }
+  
+  /* Make the banner responsive */
+  @media (max-width: 768px) {
+    .banner-title {
+      font-size: 2rem; /* Reduce font size for smaller screens */
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .banner-section {
+      height: 300px; /* Reduce height on very small screens */
+    }
+  
+    .banner-title {
+      font-size: 1.5rem; /* Further reduce font size for small screens */
+    }
+  }
+  

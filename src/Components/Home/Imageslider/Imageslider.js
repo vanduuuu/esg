@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
 import './Imageslider.css';  // Import the CSS file
+import banner1 from '.././../../assets/banner-1.jpg'
+import banner2 from '.././../../assets/banner-2.jpg'
+import banner3 from '.././../../assets/banner-3.jpg'
 
 const Imageslider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [animationClass, setAnimationClass] = useState('');
 
   const images = [
-    { src: 'https://i.ibb.co/qCkd9jS/img1.jpg', type: 'ENVIRONMENT' },
-    { src: 'https://i.ibb.co/jrRb11q/img2.jpg', type: 'SOCIAL' },
-    { src: 'https://i.ibb.co/NSwVv8D/img3.jpg', type: 'GOVERNANCE' },
-    { src: 'https://i.ibb.co/Bq4Q0M8/img4.jpg', type: 'SUSUTAIABLE' }
+    { src: banner1, type: 'Environmental Responsibility' },
+    { src: banner3, type: 'Social Impact' },
+    { src: banner2, type: 'Governance & Compliance' },
   ];
 
   // Move current image to the front of the thumbnail list
@@ -34,19 +36,21 @@ const Imageslider = () => {
   };
 
   return (
-    <div className={`slider ${animationClass}`}>
+   <>
+   <div className='container-fixed'>
+   <div className={`slider ${animationClass}`}>
       <div className="list">
         {images.map((image, index) => (
           <div key={index} className={`item ${index === currentIndex ? 'active' : ''}`}>
             <img src={image.src} alt={image.type} />
             <div className="content">
-              <div className="title">Your Trusted Partner in Success</div>
+              <div className="title">Leading with Sustainability in Real Estate</div>
               <div className="type">{image.type}</div>
               <div className="description">
-              <p>We offer strategic frameworks to create, manage, and invest in properties that are profitable, socially responsible and environmentally conscious.</p>
+                <p>Unlock strategic frameworks designed to foster profitability, sustainability, and social responsibility in every real estate venture.</p>
               </div>
               <div className="button">
-                <button>SEE MORE</button>
+                <button className="button">Start Your ESG Journey</button>
               </div>
             </div>
           </div>
@@ -56,7 +60,7 @@ const Imageslider = () => {
       <div className="thumbnail">
         {reorderedImages.map((image, index) => (
           <div key={index} className={`item ${index === 0 ? 'active' : ''}`}>
-            <img src={image.src} alt={image.type} />
+            <img src={image.src} alt={image.type} className='w-100' />
           </div>
         ))}
       </div>
@@ -70,6 +74,8 @@ const Imageslider = () => {
         </button>
       </div>
     </div>
+   </div>
+   </>
   );
 };
 

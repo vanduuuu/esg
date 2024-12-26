@@ -1,0 +1,16 @@
+p{
+    font-size: 18px;  
+}
+body{
+    background-image: url('./assets/call-bg-img.jpg');
+    background-position: right;
+}
+ul{
+    padding: 0;
+}
+ul li{
+    list-style: none;
+}
+.container-fluid{
+    width: 90% !important;
+}

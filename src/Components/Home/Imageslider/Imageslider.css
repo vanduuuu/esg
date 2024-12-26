@@ -2,18 +2,19 @@
 
 body {
   margin: 0;
-  background-color: #000;
-  color: #eee;
   font-family: Poppins;
   font-size: 12px;
 }
+
 .description {
-    font-size: 16px;
+  font-size: 16px;
 }
+
 a {
   text-decoration: none;
 }
 
+/* Slider Container */
 .slider {
   height: 100vh;
   width: 100vw;
@@ -22,22 +23,21 @@ a {
   transition: transform 0.5s ease-in-out;
 }
 
-.slider.next .list .item {
-  animation: slideInNext 0.5s forwards;
+.slider .list {
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
-.slider.prev .list .item {
-  animation: slideInPrev 0.5s forwards;
-}
-
-/* Slider Item */
+/* Dark Overlay */
 .slider .list .item {
   width: 100%;
   height: 100%;
   position: absolute;
-  inset: 0 0 0 0;
+  inset: 0;
   opacity: 0;
   transition: opacity 1s ease-in-out;
+  z-index: 1; /* Overlay behind content */
 }
 
 .slider .list .item.active {
@@ -50,26 +50,40 @@ a {
   object-fit: cover;
 }
 
+.slider .list .item::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to right, rgb(0 0 0 / 92%), rgba(0, 0, 0, 0));
+    z-index: 2; 
+}
+
+/* Content inside the slider */
 .slider .list .item .content {
-    position: absolute;
-    top: 29%;
-    width: 92%;
-    max-width: 48%;
-    left: 28%;
-    transform: translateX(-50%);
-    color: #fff;
-    text-shadow: 0 5px 10px #0004;
+  position: absolute;
+  top: 29%;
+  width: 92%;
+  max-width: 48%;
+  left: 28%;
+  transform: translateX(-50%);
+  color: #fff;
+  text-shadow: 0 5px 10px #0004;
+  z-index: 3; /* Ensure content appears above the overlay */
 }
 
 .slider .list .item .content .title,
 .slider .list .item .content .type {
-  font-size: 5em;
+  font-size: 3em;
   font-weight: bold;
   line-height: 1.3em;
 }
-
 .slider .list .item .type {
-  color: #14ff72cb;
+  color: #409bc0;
+  font-size: 5em !important;
+  text-shadow: 1px 0px 0px #7cf900;
 }
 
 /* Thumbnail */
@@ -78,7 +92,7 @@ a {
   bottom: 50px;
   left: 50%;
   width: max-content;
-  z-index: 0;
+  z-index: 3; /* Ensure thumbnails are above the overlay */
   display: flex;
   gap: 20px;
 }
@@ -97,17 +111,19 @@ a {
   border-radius: 20px;
   box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3);
 }
+
 .button button {
-    padding: 10px 14px;
-    letter-spacing: 3px;
-    font-weight: 500;
-    margin-top: 30px;
+  padding: 10px 14px;
+  letter-spacing: 3px;
+  font-weight: 500;
+  margin-top: 30px;
 }
+
 /* Arrows */
 .nextPrevArrows {
   position: absolute;
   top: 80%;
-  right: 52%;
+  right: 44%;
   z-index: 100;
   width: 300px;
   max-width: 30%;
@@ -120,13 +136,14 @@ a {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: #14ff72cb;
+  background-color: #409bc0;
   border: none;
   color: #fff;
   font-family: monospace;
   font-weight: bold;
   transition: 0.5s;
   cursor: pointer;
+  box-shadow: 0px 6px 9px black;
 }
 
 .nextPrevArrows button:hover {

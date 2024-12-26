@@ -1,121 +1,180 @@
-*{
-    margin: 0;
-    padding:0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
-/* .nav-outer{
-    min-height:100vh;
-    background-image: url('../../../assets/green-business-esg-management-tool-save-world-lca-future-better-day.jpg');
-    background-size: cover;
-    background-position: center;
-} */
-.header{
-    position: fixed;
-    top:0;
-    left:0;
-    width: 100%;
-    padding: 1.3rem 10%;
-    /* background-color: rgba(0,0,0,.1); taken this css in pseudo elemet */
-    display: flex;
-    /* backdrop-filter: blur(50px);taken this css in pseudo elemet */
-    justify-content: space-between;
-    align-items: center;
-    z-index: 100;
+
+/* Header */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.3rem 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
 }
-.header::before{
-    content: '';
-    position: absolute;
-    top:0;
-    left:0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,.1);
-    backdrop-filter: blur(50px);
-    z-index: -1;
+
+.header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(50px);
+  z-index: -1;
 }
-.header::after{
-    content: '';
-    position: absolute;
-    top:0;
-    left:-100%;
-    width: 100%;
-    height: 100%;
-    background:linear-gradient(90deg, transparent, rgba(255,255,255,.4), transparent);
-   transition: .5s;
+
+.logo {
+  font-size: 2rem;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
 }
-.header:hover::after{
-    left: 100%;
+
+/* Navbar */
+.navbar {
+  display: flex;
+  align-items: center;
 }
-.logo{
-    font-size: 2rem;
-    color:#fff;
-    text-decoration: none;
-    font-weight: 7004;
+
+.navbar a, .navbar button {
+  font-size: 1.15rem;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  /* margin-left: 2.5rem; */
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
-.navbar a{
-    font-size: 1.15rem;
-    color: #fff;
-    text-decoration: none;
-    font-weight: 500;
-    margin-left: 2.5rem;
+.navbar button ul li a{
+  margin: 0 !important;
+  padding:0 !important;
 }
-#check{
+/* Hover effect for nav links */
+.navbar a:hover,
+.nav-link.dropdown-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Subtle hover effect */
+  color: #f39c12; /* Color when hovering */
+}
+
+/* Active state for the dropdown toggle */
+.nav-link.dropdown-toggle.active {
+  color: #f39c12; /* Active color */
+  background-color: rgba(255, 255, 255, 0.2); /* Active background */
+}
+
+/* Dropdown */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #333;
+  display: none;
+  flex-direction: column;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border-radius: 4px; /* Rounded corners */
+}
+
+.dropdown.open .dropdown-menu {
+  display: flex;
+}
+
+/* Dropdown item */
+.dropdown-item {
+  padding: 0.75rem 1.5rem;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border-radius: 4px; /* Same rounded corners as navbar links */
+}
+
+/* Hover effect for dropdown items */
+.dropdown-item:hover {
+  background-color: #f39c12;
+  color: #fff;
+}
+
+/* Toggle Button */
+#check {
+  display: none;
+}
+
+.icons {
+  position: absolute;
+  font-size: 2.8rem;
+  cursor: pointer;
+  color: #fff;
+  display: none;
+  right: 5%;
+}
+
+.icons #menu-icon {
+  display: block;
+}
+
+.icons #close-icon {
+  display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .icons {
+    display: inline-flex;
+  }
+
+  #check:checked ~ .icons #menu-icon {
     display: none;
-}
-.icons{
-    position: absolute;
-    font-size: 1.8rem;
-    cursor: pointer;
-    color:#fff;
-    display: none;
-    right:5%;
-}
-/* BREAKPOINTS */
-@media(max-width:992px){
-.header{
-    padding: 1.3rem 5%;
-}
-}
-@media(max-width:768px){
-    .icons{
-display: inline-flex;}
-#check:checked~.icons #menu-icon{
-    display: none;
-}
-.icons #close-icon{
-    display: none;
-}
-#check:checked~.icons #close-icon{
+  }
+
+  #check:checked ~ .icons #close-icon {
     display: block;
-}
-.navbar{
+  }
+
+  .navbar {
     position: absolute;
-    top:100%;
-    left: 0%;
-    background-color: rgba(0,0,0,.1);
+    top: 100%;
+    left: 0;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(50px);
     width: 100%;
     height: 0;
-    backdrop-filter: blur(50px);
-    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
     overflow: hidden;
-    transition: .3s ease;
-}
-#check:checked~.navbar{
-    height: 17.7rem;
-}
-.navbar a{
+    transition: height 0.3s ease;
+  }
+
+  #check:checked ~ .navbar {
+    height: auto;
+  }
+
+  .navbar a {
     display: block;
     font-size: 1.1rem;
     margin: 1.5rem 0;
     text-align: center;
     transform: translateY(-50px);
     opacity: 0;
-    transition: .3s ease;
-}
-#check:checked~.navbar a{
+    transition: 0.3s ease;
+  }
+
+  #check:checked ~ .navbar a {
     transform: translateY(0px);
     opacity: 1;
-    transition-delay: calc(.15s * var(--i)) ;
+    transition-delay: calc(0.15s * var(--i));
+  }
 }
-    }

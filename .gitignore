@@ -10,6 +10,10 @@
 
 # production
 /build
+build.zip
+
+# If you want to ignore all .zip files (globally)
+*.zip
 
 # misc
 .DS_Store

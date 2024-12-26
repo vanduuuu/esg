@@ -1,0 +1,73 @@
+/* Existing styles */
+.abt-outerr .img1 {
+    height: 400px;
+    width: 100%;
+    object-fit: cover;
+}
+.abt-outerr .img2 {
+    margin-top: 30px;
+}
+
+.mycontainer {
+    width: 90%;
+    margin: auto;
+}
+.abtvision {
+    background-image: url('../../assets/banner-3.jpg');
+    background-attachment: fixed;
+    position: relative; /* To position the overlay correctly */
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+.abtvision::after {
+    content: ''; /* Create an empty pseudo-element */
+    position: absolute; /* Absolute positioning within .abtvision */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000000ab; /* Dark overlay with 50% opacity */
+    z-index: 1; /* Ensure the overlay is above the background, but below the content */
+}
+
+.abtvision > * {
+    position: relative; /* Ensure any content inside .abtvision stays above the overlay */
+    z-index: 2;
+}
+
+
+/* Add the left animation effect */
+.botom-txt::before {
+    content: '';
+    position: absolute;
+    left: -72px; /* Position to the left of the text */
+    top: -12px;
+    transform: translateY(-50%);
+    width: 80px;
+    height: 80px;
+    background-image: url('../../assets/brand-shape.png'); /* Leaf image URL */
+    background-size: cover;
+    animation: leaf-animation 5s ease-in-out infinite; /* Updated animation */
+}
+
+/* Animation for the leaf effect (0 to 90 and back to 0) */
+@keyframes leaf-animation {
+    0% {
+        transform: translateY(-20%) rotate(0deg); /* Start at 0 degrees */
+    }
+    50% {
+        transform: translateY(-0%) rotate(10deg); /* Rotate to 90 degrees at halfway point */
+    }
+    100% {
+        transform: translateY(-20%) rotate(0deg); /* Rotate back to 0 degrees */
+    }
+}
+
+
+@media (max-width: 600px) {
+    .abt-outerr .img2 {
+        margin-top: 0px;
+    }
+}

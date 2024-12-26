@@ -1,0 +1,94 @@
+/* HorizontalCard.css */
+
+/* Zoom image on hover */
+.card-hover:hover .card-img {
+    transform: scale(1.1); /* Zoom the image */
+    transition: transform 0.5s ease; /* Smooth transition for zoom effect */
+  }
+  
+  .card-hover {
+    background-color: #007bff0d;
+    position: relative; /* Allow positioning inside the card */
+    overflow: visible; /* Allow content to overflow the card boundary */
+  }
+  
+  /* Apply border on the left side of the card when hovered */
+  .card-hover:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Optional: Add shadow for depth */
+  }
+  
+  /* Title background color change animation */
+  .card-title {
+    position: relative; /* Allow positioning of the pseudo-element */
+    overflow: hidden;
+    color: #26486dd4;
+    display: inline-block;
+    padding: 5px 20px 5px 0px;
+  }
+  
+  .card-hover .card-title:before {
+    content: ''; /* Pseudo-element for the background */
+    position: absolute;
+    top: 0;
+    left: -100%; /* Start from left side */
+    height: 100%;
+    width: 100%;
+    background: #26486d1f; /* Blue background (can be changed) */
+    transition: left 0.5s ease-in-out; /* Smooth transition from left to right */
+  }
+  
+  .card-hover:hover .card-title:before {
+    left: 0; /* Move to the right side when hovered */
+  }
+  
+  .card-body {
+    position: relative;
+    z-index: 1; /* Ensure the content stays above the pseudo-element */
+  }
+  
+  /* Ensure that the image container is relative for the zoom effect to be contained */
+  .img-container {
+    position: relative; /* Allow absolute positioning of the number */
+    overflow: hidden; /* Prevent the image from overflowing its container when zoomed */
+  }
+  
+  .card-img {
+    width: 100%;  /* Ensures the image takes the full width of the container */
+    height: 300px; /* Set a fixed height for the image */
+    object-fit: cover; /* This makes sure the image is scaled properly and doesn't distort */
+    transition: transform 0.5s ease; /* Smooth transition for zoom effect */
+  }
+  
+  /* List items with icons */
+  .list-unstyled {
+    margin-top: 20px;
+  }
+  
+  .list-unstyled li {
+    font-size: 16px;
+  }
+  
+  .list-unstyled li .me-2 {
+    margin-right: 10px; /* Add space between the icon and text */
+  }
+  
+  /* Styling for the card number - Half inside and half outside the card */
+  .card-number {
+    position: absolute;
+    top: -25px;
+    right: -15px;
+    color: #4765865e;
+    font-size: 71px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 50%;
+    z-index: 2;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-shadow: 3px 0px 0px #ffffff;
+}
+  
+  /* Hover effect for the card number */
+  .card-hover:hover .card-number {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+  }
+  
